@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0%;
+            margin: 0%;
+            font-family: sans-serif;
+        }
+        .nav {
+            display: flex;
+            background-color: rgb(243, 243, 78);
+
+        }
+        .nav-item {
+            flex-grow: 1;
+            text-align: center;
+            padding: 1%;
+            margin: 1% 10%;
+            border: 2px solid black;
+            background-color: lightgreen;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            
+        }
+        .line {
+            padding: 1% 0%;
+            border-top: 1px solid black;
+        }
+        #search {
+            width: 600px;
+            display: flex;
+            margin: auto;
+            border: 1px solid rgb(133, 129, 129);
+            border-radius: 5px;
+        }
+        #receipe {
+            flex-grow: 1;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+        }
+        #receipe, #submit {
+            padding: 12px;
+            border: none;
+            outline: none;
+            font-size: 18px;
+        }
+        #submit {
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+            background-color: limegreen;
+            padding: 0px 20px;
+            cursor: pointer;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navigation"></div>
+
+    <div id="search">
+        <input type="text" id="receipe" placeholder="Enter Receipe" />
+        <button id="submit">Search</button>
+    </div>
+
+    <div id="dishes">
+        
+    </div>
+
+    <script src="./index.js" type="module"></script>
+</body>
+</html>
