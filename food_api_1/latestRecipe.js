@@ -18,13 +18,12 @@ div2.addEventListener( "click", () => {
 })
 
 div3.addEventListener( "click", () => {
-    window.location.href = "./latestRecipe.html";
+    window.location.href = "./latest.html";
 })
 
 
 
 function createCard( mealData ){
-    mealData = mealData[0];
 
     var cuisine = mealData.strArea;
     console.log( cuisine );
@@ -69,41 +68,24 @@ function createCard( mealData ){
 
 function getRecipe(){
     dishes.innerHTML = "";
-    var url = `https://www.themealdb.com/api/json/v1/1/random.php`;
+    var url = `https://www.themealdb.com/api/json/v1/1/search.php?s=`;
     fetch( url )
     .then( res => {
         return res.json();
     })
     .then( data => {
+        console.log( data.meals );
+        // var meal = data.meals;
+        // console.log( meal );
         var meal = data.meals;
-        createCard( meal );
+        for( var i = 0; i < meal.length; i++ ){
+            createCard( meal[i] );
+        }
     })
     .catch( err => {
         console.log( err );
     })
 }
 
-var debounce = (func, timeout = 1000*24*60*60 ) => {
-    var timer;
-    return (...args) => {
-        if( timer )
-            clearTimeout( timer );
-        timer = setTimeout(() => {
-            func.apply( this, args );
-        }, timeout);
-    }
-}
-
-window.addEventListener("load", () => {
-    console.log( dishes.innerHTML === "" );
-    console.log( dishes.innerHTML );
-    if( dishes.innerHTML === "" ){
-        getRecipe();
-    }
-    else{
-        debounce( () => {
-            getRecipe();
-        }, 2000)
-    }
-});
+window.addEventListener("load", getRecipe);
 

@@ -18,7 +18,7 @@ div2.addEventListener( "click", () => {
 })
 
 div3.addEventListener( "click", () => {
-    window.location.href = "./latestRecipe.html";
+    window.location.href = "./latest.html";
 })
 
 
